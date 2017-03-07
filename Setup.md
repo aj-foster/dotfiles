@@ -5,10 +5,10 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Utilities
-brew install git hub bash-completions
+brew install git hub bash-completions openssl coreutils gpg
 
 # Applications
-brew cask install atom firefox slack
+brew cask install atom firefox slack postgres docker alfred
 ```
 
 ### Install ASDF
