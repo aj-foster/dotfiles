@@ -1,0 +1,7 @@
+'.text.elixir':
+  '<% inline %>':
+    'prefix': 'e'
+    'body': '<% $0 %>'
+  '<%= replace %>':
+    'prefix': 'pe'
+    'body': '<%= $0 %>'

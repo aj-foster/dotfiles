@@ -1,0 +1,9 @@
+[user]
+    name = AJ Foster
+    email = web@aj-foster.com
+[push]
+    default = simple
+[core]
+    editor = ~/.files/git/commit-atom.sh
+[credential]
+    helper = osxkeychain

@@ -1,0 +1,51 @@
+"*":
+  "atom-beautify":
+    elm: {}
+    general:
+      _analyticsUserId: "73eace24-6e0c-4ed0-aa0d-888bf63a874d"
+  core:
+    destroyEmptyPanes: false
+    telemetryConsent: "limited"
+  editor:
+    autoIndentOnPaste: false
+    fontSize: 13
+    scrollPastEnd: true
+    showInvisibles: true
+    softWrap: true
+  "elm-format": {}
+  "exception-reporting":
+    userId: "8eaed72e-8ab1-51e0-8d66-ba0b7540a9a2"
+  "grammar-token-limit":
+    maxTokensPerLine: 1000
+  latex:
+    enableShellEscape: true
+    style: {}
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        black: "#282c34"
+        blue: "#61afef"
+        cyan: "#56b6c2"
+        green: "#98c379"
+        magenta: "#c678dd"
+        orange: "#d19a66"
+        red: "#e06c75"
+        yellow: "#d19a66"
+      zBright:
+        brightBlack: "#aaaaaa"
+    core:
+      autoRunCommand: "unset ELECTRON_RUN_AS_NODE; clear"
+      shellArguments: "--login"
+    style:
+      fontFamily: "Monaco, Menlo"
+    toggles:
+      autoClose: true
+  tabs:
+    usePreviewTabs: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    removeTrailingWhitespace: false
+  wordcount:
+    alwaysOn: true

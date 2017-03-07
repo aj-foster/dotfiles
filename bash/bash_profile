@@ -1,0 +1,100 @@
+########
+# ASDF #
+########
+
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+
+###########
+# Aliases #
+###########
+
+# Repeat the previous command with `sudo`.
+alias please='sudo $(fc -n -l -1)'
+
+# Prompt before overwriting things, and list changes.
+alias cp='cp -iv'
+alias mv='mv -iv'
+
+# Provide several variations of `ls`.
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -l'
+
+# Create intermediate directories and list changes.
+alias mkdir='mkdir -pv'
+
+# Send files to the macOS trash can.
+trash () { command mv "$@" ~/.Trash ; }
+
+
+############
+# Autojump #
+############
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+
+##########
+# Docker #
+##########
+
+alias de='docker exec -it'
+
+
+#######
+# Git #
+#######
+
+# Convenient aliases.
+alias g='git status'
+alias gc='git commit --verbose'
+alias gd='git diff'
+alias gap='git add -p'
+alias gco='git checkout'
+
+# Allow easy add of the current directory.
+ga () {
+  if [ -z $1 ]
+  then
+    git add .
+  else
+    git add $@
+  fi
+}
+
+# Use hub as a wrapper around git.
+eval "$(hub alias -s)"
+
+
+##########
+# Golang #
+##########
+
+# export GOPATH=$HOME/.go
+# export GOROOT=/usr/local/opt/go/libexec
+# export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+
+#####################
+# Terminal Behavior #
+#####################
+
+# Color `ls` output.
+export CLICOLOR=1
+
+# Ignore duplicate commands in the command history.
+export HISTCONTROL=ignoreboth:erasedups
+
+# Various completions.
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# Setup prompt, include git repo information.
+export GIT_PS1_HIDE_IF_PWD_IGNORE=1
+export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_STATESEPARATOR=" "
+export PS1=$'\[\033[37m\]AJ\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\] \[\033[35m\]\W\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\]$(__git_ps1 \' \[\033[34m\]%s\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\]\') \[\033[90m\]\$\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\] '
+
+# Use nano as the default editor.
+export EDITOR=/usr/bin/nano
