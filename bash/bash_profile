@@ -77,6 +77,13 @@ eval "$(hub alias -s)"
 # export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 
+##############
+# PostgreSQL #
+##############
+
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+
 #####################
 # Terminal Behavior #
 #####################
