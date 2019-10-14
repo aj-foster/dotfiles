@@ -28,6 +28,9 @@ alias mkdir='mkdir -pv'
 # Send files to the macOS trash can.
 trash () { command mv "$@" ~/.Trash ; }
 
+# Launch tmux with all colors
+alias tmux='tmux -2'
+
 
 ############
 # Autojump #
@@ -41,6 +44,13 @@ trash () { command mv "$@" ~/.Trash ; }
 ##########
 
 alias de='docker exec -it'
+
+
+##########
+# Elixir #
+##########
+
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 
 #######
@@ -72,9 +82,9 @@ eval "$(hub alias -s)"
 # Golang #
 ##########
 
-# export GOPATH=$HOME/.go
-# export GOROOT=/usr/local/opt/go/libexec
-# export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export GOPATH=$HOME/.go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 
 ##############
@@ -105,3 +115,11 @@ export PS1=$'\[\033[37m\]AJ\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\] \[\03
 
 # Use nano as the default editor.
 export EDITOR=/usr/bin/nano
+
+
+##########
+# Tweaks #
+##########
+
+# Allow per-machine tweaks.
+source $HOME/.bash_local

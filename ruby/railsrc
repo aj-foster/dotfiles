@@ -1,2 +1,0 @@
-# Use Postgres as the default database.
--d postgresql
