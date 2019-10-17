@@ -29,6 +29,10 @@ else
   echo "${GREEN}✓ Homebrew${NC}"
 fi
 
+# For later...
+#
+BREW_LIST=$(brew list)
+
 # Git
 #
 if [ -z $(which git) ]
@@ -38,6 +42,21 @@ then
   brew install git
 else
   echo "${GREEN}✓ Git${NC}"
+fi
+
+if [ ! -L ~/.gitconfig ]
+then
+  echo "${RED}✗ Git Configuration File${NC}"
+  continue_or_exit "Install Git Configuration File?"
+
+  if [ -f ~/.gitconfig ]
+  then
+    mv -i ~/.gitconfig ~/.gitconfig.pre-setup
+  fi
+
+  ln -s ~/.files/git/gitconfig ~/.gitconfig
+else
+  echo "${GREEN}✓ Git Configuration File${NC}"
 fi
 
 # Oh my ZSH
@@ -50,6 +69,67 @@ then
 else
   echo "${GREEN}✓ Oh-my-zsh${NC}"
 fi
+
+if [ ! -L ~/.oh-my-zsh/custom/themes/aj.zsh-theme ]
+then
+  echo "${RED}✗ Oh-my-zsh Theme${NC}"
+  continue_or_exit "Install Oh-my-zsh Theme?"
+
+  if [ -f ~/.oh-my-zsh/custom/themes/aj.zsh-theme ]
+  then
+    mv -i ~/.oh-my-zsh/custom/themes/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme.pre-setup
+  fi
+
+  ln -s ~/.files/asdf/oh-my-zsh/custom/themes/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme
+else
+  echo "${GREEN}✓ Oh-my-zsh Theme${NC}"
+fi
+
+if [ ! -L ~/.zshrc ]
+then
+  echo "${RED}✗ zsh Configuration File${NC}"
+  continue_or_exit "Install zsh Configuration File?"
+
+  if [ -f ~/.zshrc ]
+  then
+    mv -i ~/.zshrc ~/.zshrc.pre-setup
+  fi
+
+  ln -s ~/.files/asdf/zshrc ~/.zshrc
+else
+  echo "${GREEN}✓ zsh Configuration File${NC}"
+fi
+
+if [ ! -L ~/.inputrc ]
+then
+  echo "${RED}✗ inputrc Configuration File${NC}"
+  continue_or_exit "Install inputrc Configuration File?"
+
+  if [ -f ~/.inputrc ]
+  then
+    mv -i ~/.inputrc ~/.inputrc.pre-setup
+  fi
+
+  ln -s ~/.files/bash/inputrc ~/.inputrc
+else
+  echo "${GREEN}✓ inputrc Configuration File${NC}"
+fi
+
+if [ ! -L ~/.bash_profile ]
+then
+  echo "${RED}✗ bash Configuration File${NC}"
+  continue_or_exit "Install bash Configuration File?"
+
+  if [ -f ~/.bash_profile ]
+  then
+    mv -i ~/.bash_profile ~/.bash_profile.pre-setup
+  fi
+
+  ln -s ~/.files/bash/bash_profile ~/.bash_profile
+else
+  echo "${GREEN}✓ bash Configuration File${NC}"
+fi
+
 
 # Oh My ZSH Plugins
 #
@@ -71,3 +151,82 @@ else
   echo "${GREEN}✓ zsh Syntax Highlighting${NC}"
 fi
 
+# ASDF Version Manager
+#
+if [ -z $(which asdf) ]
+then
+  echo "${RED}✗ ASDF${NC}"
+  continue_or_exit "Install ASDF?"
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+  git checkout "$(git describe --abbrev=0 --tags)"
+else
+  echo "${GREEN}✓ ASDF${NC}"
+fi
+
+if [ ! -L ~/.asdfrc ]
+then
+  echo "${RED}✗ ASDF Configuration File${NC}"
+  continue_or_exit "Install ASDF Configuration File?"
+
+  if [ -f ~/.asdfrc ]
+  then
+    mv -i ~/.asdfrc ~/.asdfrc.pre-setup
+  fi
+
+  ln -s ~/.files/asdf/asdfrc ~/.asdfrc
+else
+  echo "${GREEN}✓ ASDF Configuration File${NC}"
+fi
+
+# Nano Editor
+#
+if [ -z $(echo "$BREW_LIST" | grep nano) ]
+then
+  echo "${RED}✗ Nano (upgrade)${NC}"
+  continue_or_exit "Install Nano (upgrade)?"
+  brew install nano
+else
+  echo "${GREEN}✓ Nano (upgrade)${NC}"
+fi
+
+if [ ! -L ~/.nanorc ]
+then
+  echo "${RED}✗ Nano Configuration File${NC}"
+  continue_or_exit "Install Nano Configuration File?"
+
+  if [ -f ~/.nanorc ]
+  then
+    mv -i ~/.nanorc ~/.nanorc.pre-setup
+  fi
+
+  ln -s ~/.files/nano/nanorc ~/.nanorc
+else
+  echo "${GREEN}✓ Nano Configuration File${NC}"
+fi
+
+# tmux
+#
+if [ -z $(echo "$BREW_LIST" | grep tmux) ]
+then
+  echo "${RED}✗ tmux (upgrade)${NC}"
+  continue_or_exit "Install tmux (upgrade)?"
+  brew install tmux
+else
+  echo "${GREEN}✓ tmux (upgrade)${NC}"
+fi
+
+if [ ! -L ~/.tmux.conf ]
+then
+  echo "${RED}✗ tmux Configuration File${NC}"
+  continue_or_exit "Install tmux Configuration File?"
+
+  if [ -f ~/.tmux.conf ]
+  then
+    mv -i ~/.tmux.conf ~/.tmux.conf.pre-setup
+  fi
+
+  ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
+else
+  echo "${GREEN}✓ tmux Configuration File${NC}"
+fi
