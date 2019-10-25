@@ -44,6 +44,15 @@ else
   echo "${GREEN}✓ Git${NC}"
 fi
 
+if [ -z $(which hub) ]
+then
+  echo "${RED}✗ Hub (Git add-on)${NC}"
+  continue_or_exit "Install Hub?"
+  brew install hub
+else
+  echo "${GREEN}✓ Hub (Git add-on)${NC}"
+fi
+
 if [ ! -L ~/.gitconfig ]
 then
   echo "${RED}✗ Git Configuration File${NC}"
@@ -80,7 +89,7 @@ then
     mv -i ~/.oh-my-zsh/custom/themes/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme.pre-setup
   fi
 
-  ln -s ~/.files/asdf/oh-my-zsh/custom/themes/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme
+  ln -s ~/.files/zsh/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme
 else
   echo "${GREEN}✓ Oh-my-zsh Theme${NC}"
 fi
@@ -95,9 +104,14 @@ then
     mv -i ~/.zshrc ~/.zshrc.pre-setup
   fi
 
-  ln -s ~/.files/asdf/zshrc ~/.zshrc
+  ln -s ~/.files/zsh/zshrc ~/.zshrc
 else
   echo "${GREEN}✓ zsh Configuration File${NC}"
+fi
+
+if [ ! -f ~/.zshrc_local ]
+then
+  touch ~/.zshrc_local
 fi
 
 if [ ! -L ~/.inputrc ]
@@ -203,6 +217,15 @@ then
   ln -s ~/.files/nano/nanorc ~/.nanorc
 else
   echo "${GREEN}✓ Nano Configuration File${NC}"
+fi
+
+if [ ! -d .nano ]
+then
+  echo "${RED}✗ Nano Syntax Highlighting${NC}"
+  continue_or_exit "Install Nano Syntax Highlighting?"
+  git clone https://github.com/scopatz/nanorc.git ~/.nano
+else
+  echo "${GREEN}✓ Nano Syntax Highlighting${NC}"
 fi
 
 # tmux
