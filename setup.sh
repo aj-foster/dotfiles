@@ -25,34 +25,14 @@ then
   echo "${RED}✗ Homebrew${NC}"
   continue_or_exit "Install Homebrew?"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew tap homebrew/bundle
+  brew bundle --file=~/.files/brew/common.brewfile
 else
   echo "${GREEN}✓ Homebrew${NC}"
 fi
 
-# For later...
+# Git Config
 #
-BREW_LIST=$(brew list)
-
-# Git
-#
-if [ -z $(which git) ]
-then
-  echo "${RED}✗ Git${NC}"
-  continue_or_exit "Install Git?"
-  brew install git
-else
-  echo "${GREEN}✓ Git${NC}"
-fi
-
-if [ -z $(which hub) ]
-then
-  echo "${RED}✗ Hub (Git add-on)${NC}"
-  continue_or_exit "Install Hub?"
-  brew install hub
-else
-  echo "${GREEN}✓ Hub (Git add-on)${NC}"
-fi
-
 if [ ! -L ~/.gitconfig ]
 then
   echo "${RED}✗ Git Configuration File${NC}"
@@ -193,17 +173,37 @@ else
   echo "${GREEN}✓ ASDF Configuration File${NC}"
 fi
 
-# Nano Editor
-#
-if [ -z $(echo "$BREW_LIST" | grep nano) ]
+ASDF_PLUGINS=$(asdf plugin-list)
+
+if [ -z $(echo "$ASDF_PLUGINS" | grep erlang) ]
 then
-  echo "${RED}✗ Nano (upgrade)${NC}"
-  continue_or_exit "Install Nano (upgrade)?"
-  brew install nano
+  echo "${RED}✗ ASDF Erlang Plugin${NC}"
+  continue_or_exit "Install ASDF Erlang Plugin?"
+  asdf plugin-add erlang
 else
-  echo "${GREEN}✓ Nano (upgrade)${NC}"
+  echo "${GREEN}✓ ASDF Erlang Plugin${NC}"
 fi
 
+if [ -z $(echo "$ASDF_PLUGINS" | grep elixir) ]
+then
+  echo "${RED}✗ ASDF Elixir Plugin${NC}"
+  continue_or_exit "Install ASDF Elixir Plugin?"
+  asdf plugin-add elixir
+else
+  echo "${GREEN}✓ ASDF Elixir Plugin${NC}"
+fi
+
+if [ -z $(echo "$ASDF_PLUGINS" | grep nodejs) ]
+then
+  echo "${RED}✗ ASDF Node.js Plugin${NC}"
+  continue_or_exit "Install ASDF Node.js Plugin?"
+  asdf plugin-add nodejs
+else
+  echo "${GREEN}✓ ASDF Node.js Plugin${NC}"
+fi
+
+# Nano Editor
+#
 if [ ! -L ~/.nanorc ]
 then
   echo "${RED}✗ Nano Configuration File${NC}"
@@ -230,15 +230,6 @@ fi
 
 # tmux
 #
-if [ -z $(echo "$BREW_LIST" | grep tmux) ]
-then
-  echo "${RED}✗ tmux (upgrade)${NC}"
-  continue_or_exit "Install tmux (upgrade)?"
-  brew install tmux
-else
-  echo "${GREEN}✓ tmux (upgrade)${NC}"
-fi
-
 if [ ! -L ~/.tmux.conf ]
 then
   echo "${RED}✗ tmux Configuration File${NC}"
@@ -266,6 +257,7 @@ then
     mv -i ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.pre-setup
   fi
 
+  mkdir -p ~/Library/Application\ Support/Code/User/
   ln -s ~/.files/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 else
   echo "${GREEN}✓ VS Code Settings${NC}"
