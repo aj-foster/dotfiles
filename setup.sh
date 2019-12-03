@@ -228,6 +228,24 @@ else
   echo "${GREEN}✓ Nano Syntax Highlighting${NC}"
 fi
 
+# SSH Config
+#
+if [ ! -L ~/.ssh/config ]
+then
+  echo "${RED}✗ SSH Configuration File${NC}"
+  continue_or_exit "Install SSH Configuration File?"
+
+  if [ -f ~/.ssh/config ]
+  then
+    mv -i ~/.ssh/config ~/.ssh/config.pre-setup
+  fi
+
+  mkdir -p ~/.ssh
+  ln -s ~/.files/ssh/config ~/.ssh/config
+else
+  echo "${GREEN}✓ SSH Configuration File${NC}"
+fi
+
 # tmux
 #
 if [ ! -L ~/.tmux.conf ]
