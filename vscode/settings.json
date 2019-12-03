@@ -23,6 +23,7 @@
     "linsy",
     "pluggable",
     "pluralsight",
+    "pluralsight's",
     "prechallenge",
     "promisify",
     "referentially",
@@ -47,5 +48,7 @@
   "editor.minimap.enabled": false,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.rendererType": "dom",
-  "workbench.panel.defaultLocation": "right"
+  "workbench.panel.defaultLocation": "right",
+  "liveshare.openSharedServers": false,
+  "vsls-pomodoro.intervalDuration": 10
 }

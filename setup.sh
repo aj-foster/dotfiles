@@ -219,7 +219,7 @@ else
   echo "${GREEN}✓ Nano Configuration File${NC}"
 fi
 
-if [ ! -d .nano ]
+if [ ! -d ~/.nano ]
 then
   echo "${RED}✗ Nano Syntax Highlighting${NC}"
   continue_or_exit "Install Nano Syntax Highlighting?"
@@ -252,4 +252,36 @@ then
   ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
 else
   echo "${GREEN}✓ tmux Configuration File${NC}"
+fi
+
+# VS Code Settings
+#
+if [ ! -L ~/Library/Application\ Support/Code/User/settings.json ]
+then
+  echo "${RED}✗ VS Code Settings${NC}"
+  continue_or_exit "Install VS Code Settings?"
+
+  if [ -f ~/Library/Application\ Support/Code/User/settings.json ]
+  then
+    mv -i ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.pre-setup
+  fi
+
+  ln -s ~/.files/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+else
+  echo "${GREEN}✓ VS Code Settings${NC}"
+fi
+
+if [ ! -L ~/Library/Application\ Support/Code/User/keybindings.json ]
+then
+  echo "${RED}✗ VS Code Keybindings${NC}"
+  continue_or_exit "Install VS Code Keybindings?"
+
+  if [ -f ~/Library/Application\ Support/Code/User/keybindings.json ]
+  then
+    mv -i ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json.pre-setup
+  fi
+
+  ln -s ~/.files/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+else
+  echo "${GREEN}✓ VS Code Keybindings${NC}"
 fi
