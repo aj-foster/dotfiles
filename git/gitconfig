@@ -1,18 +1,18 @@
 [user]
-	name = AJ Foster
-	email = web@aj-foster.com
+  name = AJ Foster
+  email = web@aj-foster.com
 [push]
-	default = simple
+  default = simple
 [core]
-	editor = nano
+  editor = nano
 [credential]
 	helper = osxkeychain
 [hub]
-	protocol = https
+  protocol = https
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [fetch]
-	prune = true
+  prune = true
