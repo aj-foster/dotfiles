@@ -8,7 +8,9 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "javascript.format.enable": false,
-  "editor.rulers": [100],
+  "editor.rulers": [
+    100
+  ],
   "explorer.confirmDragAndDrop": false,
   "cSpell.userWords": [
     "changeset",
@@ -16,6 +18,7 @@
     "cyclomatic",
     "dropdown",
     "erlang",
+    "figma",
     "flexbox",
     "guids",
     "heredoc",
@@ -47,8 +50,7 @@
   },
   "editor.minimap.enabled": false,
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.rendererType": "dom",
-  "workbench.panel.defaultLocation": "right",
   "liveshare.openSharedServers": false,
-  "vsls-pomodoro.intervalDuration": 10
+  "diffEditor.ignoreTrimWhitespace": false,
+  "cSpell.dictionaryDefinitions": []
 }
