@@ -70,7 +70,6 @@ ZSH_THEME="aj"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   asdf
-  brew
   docker
   git
   git-prompt
