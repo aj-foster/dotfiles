@@ -3,13 +3,13 @@
 # Helpers
 #
 continue_or_exit() {
-  read -r -p "${1:-Continue?} [y/N] " response
+  read -r -p "${1:-Continue?} [Y/n] " response
   case "$response" in
-    [yY][eE][sS]|[yY]) 
-      true
+    [nN][oO]|[nN]) 
+      exit
       ;;
     *)
-      exit
+      true
       ;;
   esac
 }
