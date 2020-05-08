@@ -44,6 +44,7 @@ then
   fi
 
   ln -s ~/.files/git/gitconfig ~/.gitconfig
+  ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 else
   echo "${GREEN}✓ Git Configuration File${NC}"
 fi
