@@ -6,7 +6,7 @@
 [core]
   editor = nano
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [hub]
   protocol = https
 [filter "lfs"]
@@ -16,3 +16,5 @@
   required = true
 [fetch]
   prune = true
+[alias]
+  yolo = push origin staging:production
