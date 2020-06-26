@@ -82,6 +82,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -191,6 +194,16 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 ##############
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+
+#############
+# Terraform #
+#############
+
+if [ -f /usr/local/bin/terraform ]
+then
+  complete -o nospace -C /usr/local/bin/terraform terraform
+fi
 
 
 ################

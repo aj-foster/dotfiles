@@ -117,6 +117,16 @@ export PS1=$'\[\033[37m\]AJ\[\033[0m\] \[\033[37m\]\xe2\x9d\xaf\[\033[0m\] \[\03
 export EDITOR=/usr/bin/nano
 
 
+#############
+# Terraform #
+#############
+
+if [ -f /usr/local/bin/terraform ]
+then
+  complete -C /usr/local/bin/terraform terraform
+fi
+
+
 ##########
 # Tweaks #
 ##########
