@@ -18,3 +18,5 @@
   prune = true
 [alias]
   yolo = push origin staging:production
+[init]
+	defaultBranch = main
