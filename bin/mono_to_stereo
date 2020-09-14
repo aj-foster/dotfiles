@@ -1,0 +1,11 @@
+#!/bin/bash
+
+input="$1"
+filename="${input%.*}"
+extension="${input##*.}"
+
+ffmpeg \
+  -i "$input" \
+  -codec:v copy \
+  -af pan="mono|c0=FL" \
+  "${filename}-stereo.${extension}"

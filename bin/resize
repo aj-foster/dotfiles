@@ -1,0 +1,11 @@
+#!/bin/bash
+
+input="$1"
+filename="${input%.*}"
+extension="${input##*.}"
+resolution="${2:=1920}"
+
+ffmpeg \
+  -i "$input" \
+  -vf scale="${resolution}":-1 \
+  "${filename}-resized.${extension}"
