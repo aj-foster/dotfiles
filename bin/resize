@@ -3,7 +3,7 @@
 input="$1"
 filename="${input%.*}"
 extension="${input##*.}"
-resolution="${2:=1920}"
+resolution="${2:-1920}"
 
 ffmpeg \
   -i "$input" \
