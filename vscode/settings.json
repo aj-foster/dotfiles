@@ -4,7 +4,6 @@
   "git.autofetch": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "git.confirmSync": false,
-  "window.zoomLevel": 0,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "javascript.format.enable": false,
@@ -13,10 +12,12 @@
   ],
   "explorer.confirmDragAndDrop": false,
   "cSpell.userWords": [
+    "backoff",
     "changeset",
     "convertable",
     "cyclomatic",
     "dropdown",
+    "embeddable",
     "erlang",
     "figma",
     "flexbox",
@@ -24,13 +25,16 @@
     "heredoc",
     "jaccard",
     "linsy",
+    "playthrough",
     "pluggable",
     "pluralsight",
     "pluralsight's",
     "prechallenge",
     "promisify",
+    "qwiklabs",
     "referentially",
     "struct",
+    "styleable",
     "subtrees",
     "uncompiled",
     "unfinalized",
@@ -46,11 +50,17 @@
   "liveshare.featureSet": "insiders",
   "elixirLS.fetchDeps": false,
   "emmet.includeLanguages": {
-    "HTML (EEx)": "html"
+    "HTML (EEx)": "html",
+    "html-eex": "html"
+  },
+  "files.associations": {
+    "*.leex": "html-eex"
   },
   "editor.minimap.enabled": false,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "liveshare.openSharedServers": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "cSpell.dictionaryDefinitions": []
+  "cSpell.dictionaryDefinitions": [],
+  "extensions.autoUpdate": true,
+  "liveshare.authenticationProvider": "GitHub"
 }
