@@ -3,5 +3,10 @@
   {
     "key": "cmd+m",
     "command": "liveshare.audio.muteUnmute"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
   }
 ]
