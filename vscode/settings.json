@@ -62,11 +62,11 @@
   "elixirLS.fetchDeps": false,
   "emmet.includeLanguages": {
     "HTML (EEx)": "html",
-    "html-eex": "html"
+    "html-eex": "html",
+    "phoenix-heex": "html"
   },
   "explorer.confirmDragAndDrop": false,
-  "extensions.autoCheckUpdates": false,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.leex": "html-eex"
@@ -116,7 +116,6 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.startupEditor": "newUntitledFile",
   "[elixir]": {
     "editor.defaultFormatter": "JakeBecker.elixir-ls"
@@ -124,5 +123,7 @@
   "[json]": {
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true
-  }
+  },
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "file-icons"
 }
