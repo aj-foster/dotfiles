@@ -24,7 +24,8 @@ if [ -z $(which brew) ]
 then
   echo "${RED}✗ Homebrew${NC}"
   continue_or_exit "Install Homebrew?"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  export PATH=/opt/homebrew/bin:$PATH
   brew tap homebrew/bundle
   brew bundle --file=~/.files/brew/common.brewfile
 else
