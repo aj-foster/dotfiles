@@ -54,6 +54,9 @@
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     100
