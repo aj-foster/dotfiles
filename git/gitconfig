@@ -1,6 +1,6 @@
 [user]
   name = AJ Foster
-  email = web@aj-foster.com
+  email = 2789166+aj-foster@users.noreply.github.com
 [push]
   default = simple
 [core]
@@ -19,8 +19,8 @@
 [alias]
   yolo = push origin staging:production
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [pull]
-	rebase = true
+  rebase = true
 [rebase]
-	autoStash = true
+  autoStash = true
