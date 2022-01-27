@@ -80,9 +80,6 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -175,8 +172,8 @@ ga () {
   fi
 }
 
-# Use hub as a wrapper around git.
-eval "$(hub alias -s)"
+# Completions
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 
 
 ##########
@@ -210,3 +207,11 @@ fi
 ################
 
 source ~/.zshrc_local
+
+
+############
+# Finalize #
+############
+
+fpath=(~/.zsh $fpath)
+autoload -Uz compinit && compinit

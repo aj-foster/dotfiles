@@ -51,6 +51,21 @@ else
   echo "${GREEN}✓ Git Configuration File${NC}"
 fi
 
+# Git Completions
+#
+if [ ! -d ~/.zsh ]
+then
+  mkdir ~/.zsh
+fi
+
+if [ ! -f ~/.zsh/_git ]
+then
+  echo "${RED}✗ Oh-my-zsh${NC}"
+  continue_or_exit "Install Git Completions?"
+  curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+  curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+fi
+
 # Oh my ZSH
 #
 if [ ! -d ~/.oh-my-zsh ]
