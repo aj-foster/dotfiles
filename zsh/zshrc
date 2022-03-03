@@ -108,9 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-###########
-# Aliases #
-###########
+#
+# Aliases
+#
 
 # Repeat the previous command with `sudo`.
 alias please='sudo $(fc -n -l -1)'
@@ -134,24 +134,24 @@ trash () { command mv "$@" ~/.Trash ; }
 alias tmux='tmux -2'
 
 
-##########
-# Docker #
-##########
+#
+# Docker
+#
 
 alias de='docker exec -it'
 
 
-##########
-# Elixir #
-##########
+#
+# Elixir
+#
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="yes"
 
 
-#######
-# Git #
-#######
+#
+# Git
+#
 
 # Convenient aliases.
 alias g='git status'
@@ -176,25 +176,34 @@ ga () {
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 
 
-##########
-# Golang #
-##########
+#
+# Golang
+#
 
 export GOPATH=$HOME/.go
 #export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 
 
-##############
-# PostgreSQL #
-##############
+#
+# PostgreSQL
+#
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 
-#############
-# Terraform #
-#############
+#
+# Shell
+#
+
+# Prevent cross-terminal history sharing
+unsetopt inc_append_history
+unsetopt share_history
+
+
+#
+# Terraform
+#
 
 if [ -f /usr/local/bin/terraform ]
 then
@@ -202,16 +211,16 @@ then
 fi
 
 
-################
-# Local Tweaks #
-################
+#
+# Local Tweaks
+#
 
 source ~/.zshrc_local
 
 
-############
-# Finalize #
-############
+#
+# Finalize
+#
 
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
