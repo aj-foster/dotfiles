@@ -112,6 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 #
 
+# Fix missing Python in macOS 12.3
+alias python='python3'
+
 # Repeat the previous command with `sudo`.
 alias please='sudo $(fc -n -l -1)'
 
