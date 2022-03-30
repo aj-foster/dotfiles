@@ -24,3 +24,5 @@
   rebase = true
 [rebase]
   autoStash = true
+[pager]
+  branch = false
