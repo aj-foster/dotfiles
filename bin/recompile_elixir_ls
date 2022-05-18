@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BASE_DIR="$HOME/Documents/Projects/other/"
+cd $BASE_DIR
+
+if [ ! -d "$BASE_DIR/elixir-ls" ] ; then
+  git clone --depth 1 https://github.com/elixir-lsp/elixir-ls
+else
+  cd elixir-ls/
+  git fetch
+  git reset --hard origin/master
+fi
+
+mix deps.get
+mix elixir_ls.release -o ~/.vscode/extensions/jakebecker.elixir-ls-*/elixir-ls-release/
