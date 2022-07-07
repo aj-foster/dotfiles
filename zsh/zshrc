@@ -73,6 +73,7 @@ alias gd='git diff'
 alias gs='git switch'
 alias gap='git add -p'
 alias gco='git checkout'
+alias gpf='git push --force-with-lease'
 
 # Allow easy add of the current directory.
 unalias ga
