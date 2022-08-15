@@ -22,6 +22,9 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 #
 
+# Export .env files
+exenv () { export $(cat .env | xargs) }
+
 # Fix missing Python in macOS 12.3
 alias python='python3'
 
