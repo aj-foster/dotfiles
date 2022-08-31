@@ -3,6 +3,7 @@
   email = 2789166+aj-foster@users.noreply.github.com
 [push]
   default = simple
+  autoSetupRemote = true
 [core]
   editor = nano
 [credential]
