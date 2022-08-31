@@ -1,0 +1,12 @@
+k9s:
+  views:
+    v1/pods:
+      columns:
+        - NAME
+        - PF
+        - READY
+        - RESTARTS
+        - STATUS
+        - IP
+        - NODE
+        - AGE

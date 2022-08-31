@@ -220,6 +220,18 @@ else
   echo "${GREEN}✓ ASDF Node.js Plugin${NC}"
 fi
 
+# K9s Config
+#
+if [ ! -L ~/Library/Application\ Support/k9s/skin.yml ]
+then
+  echo "${RED}✗ K9s Configuration${NC}"
+  continue_or_exit "Install K9s Configuration?"
+  mkdir -p ~/Library/Application\ Support/k9s
+  ln -s ~/.files/k9s/hotkey.yml ~/Library/Application\ Support/k9s/hotkey.yml
+  ln -s ~/.files/k9s/skin.yml ~/Library/Application\ Support/k9s/skin.yml
+  ln -s ~/.files/k9s/views.yml ~/Library/Application\ Support/k9s/views.yml
+fi
+
 # Nano Editor
 #
 if [ ! -L ~/.nanorc ]
