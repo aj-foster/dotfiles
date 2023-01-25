@@ -7,6 +7,6 @@ k9s:
         - READY
         - RESTARTS
         - STATUS
+        - AGE
         - IP
         - NODE
-        - AGE
