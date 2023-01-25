@@ -8,7 +8,13 @@ if [ ! -d "$BASE_DIR/elixir-ls" ] ; then
 else
   cd elixir-ls/
   git fetch
-  git reset --hard origin/master
+
+  if [ -z "$1" ]
+  then
+    git reset --hard origin/master
+  else
+    git reset --hard "$1"
+  fi
 fi
 
 mix deps.get
