@@ -17,8 +17,6 @@
   required = true
 [fetch]
   prune = true
-[alias]
-  yolo = push origin staging:production
 [init]
   defaultBranch = main
 [pull]
@@ -27,3 +25,5 @@
   autoStash = true
 [pager]
   branch = false
+[include]
+    path = .gitconfig_local
