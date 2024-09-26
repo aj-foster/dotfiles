@@ -226,10 +226,11 @@ if [ ! -L ~/Library/Application\ Support/k9s/skin.yml ]
 then
   echo "${RED}✗ K9s Configuration${NC}"
   continue_or_exit "Install K9s Configuration?"
-  mkdir -p ~/Library/Application\ Support/k9s
-  ln -s ~/.files/k9s/hotkey.yml ~/Library/Application\ Support/k9s/hotkey.yml
-  ln -s ~/.files/k9s/skin.yml ~/Library/Application\ Support/k9s/skin.yml
-  ln -s ~/.files/k9s/views.yml ~/Library/Application\ Support/k9s/views.yml
+  mkdir -p ~/Library/Application\ Support/k9s/skins
+  ln -s ~/.files/k9s/config.yaml ~/Library/Application\ Support/k9s/config.yaml
+  ln -s ~/.files/k9s/hotkeys.yaml ~/Library/Application\ Support/k9s/hotkeys.yaml
+  ln -s ~/.files/k9s/skins/one_dark.yaml ~/Library/Application\ Support/k9s/skins/one_dark.yaml
+  ln -s ~/.files/k9s/views.yaml ~/Library/Application\ Support/k9s/views.yaml
 fi
 
 # Nano Editor
