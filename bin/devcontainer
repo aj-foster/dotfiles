@@ -105,3 +105,7 @@ then
 
   ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
 fi
+
+printf '%s\n%s\n' "if ! (( \$+commands[tmux] )); then
+  return 1
+fi" "$(cat ~/.oh-my-zsh/plugins/tmux/tmux.plugin.zsh)" > ~/.oh-my-zsh/plugins/tmux/tmux.plugin.zsh
