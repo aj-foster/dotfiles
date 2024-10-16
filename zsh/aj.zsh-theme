@@ -6,5 +6,23 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=" ❯ "
 ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[blue]%}"
 
-PROMPT='AJ ❯ %{$fg[magenta]%}%1~%{$reset_color%} ❯ $(git_super_status)'
+aj_pwd() {
+  local dir=$(pwd)
+
+  if [[ $dir == $HOME ]]
+  then
+    echo "~"
+    return
+  fi
+
+  if [[ $dir == "/workspace" ]]
+  then 
+    echo "."
+    return
+  fi
+
+  echo $(basename $dir)
+}
+
+PROMPT='AJ ❯ %{$fg[magenta]%}$(aj_pwd)%{$reset_color%} ❯ $(git_super_status)'
 RPROMPT=''
