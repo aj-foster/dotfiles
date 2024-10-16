@@ -1,5 +1,5 @@
-export PATH=/opt/homebrew/bin:/Users/aj/.files/bin:$PATH
-export ZSH="/Users/aj/.oh-my-zsh"
+export PATH="/opt/homebrew/bin:$HOME/.files/bin:$PATH"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="aj"
 
@@ -156,4 +156,4 @@ fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
 # Load iTerm integration
-test -e /Users/aj/.iterm2_shell_integration.zsh && source /Users/aj/.iterm2_shell_integration.zsh || true
+test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh" || true
