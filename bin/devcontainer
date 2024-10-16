@@ -1,0 +1,107 @@
+#!/bin/sh
+
+# Git Config
+#
+if [ ! -L ~/.gitconfig ]
+then
+  if [ -f ~/.gitconfig ]
+  then
+    mv -i ~/.gitconfig ~/.gitconfig.pre-setup
+  fi
+
+  ln -s ~/.files/git/gitconfig ~/.gitconfig
+  mkdir -p ~/.ssh
+  ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+fi
+
+# Git Completions
+#
+if [ ! -d ~/.zsh ]
+then
+  mkdir ~/.zsh
+fi
+
+if [ ! -f ~/.zsh/_git ]
+then
+  curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+  curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+fi
+
+# Oh my ZSH
+#
+if [ ! -d ~/.oh-my-zsh ]
+then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+if [ ! -L ~/.oh-my-zsh/custom/themes/aj.zsh-theme ]
+then
+  if [ -f ~/.oh-my-zsh/custom/themes/aj.zsh-theme ]
+  then
+    mv -i ~/.oh-my-zsh/custom/themes/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme.pre-setup
+  fi
+
+  ln -s ~/.files/zsh/aj.zsh-theme ~/.oh-my-zsh/custom/themes/aj.zsh-theme
+fi
+
+if [ ! -L ~/.zshrc ]
+then
+  if [ -f ~/.zshrc ]
+  then
+    mv -i ~/.zshrc ~/.zshrc.pre-setup
+  fi
+
+  ln -s ~/.files/zsh/zshrc ~/.zshrc
+fi
+
+if [ ! -f ~/.zshrc_local ]
+then
+  touch ~/.zshrc_local
+fi
+
+if [ ! -L ~/.inputrc ]
+then
+  if [ -f ~/.inputrc ]
+  then
+    mv -i ~/.inputrc ~/.inputrc.pre-setup
+  fi
+
+  ln -s ~/.files/bash/inputrc ~/.inputrc
+fi
+
+# Oh My ZSH Plugins
+#
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]
+then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
+
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]
+then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
+# SSH Config
+#
+if [ ! -L ~/.ssh/config ]
+then
+  if [ -f ~/.ssh/config ]
+  then
+    mv -i ~/.ssh/config ~/.ssh/config.pre-setup
+  fi
+
+  mkdir -p ~/.ssh
+  ln -s ~/.files/ssh/config ~/.ssh/config
+fi
+
+# tmux
+#
+if [ ! -L ~/.tmux.conf ]
+then
+  if [ -f ~/.tmux.conf ]
+  then
+    mv -i ~/.tmux.conf ~/.tmux.conf.pre-setup
+  fi
+
+  ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
+fi
