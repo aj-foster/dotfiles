@@ -18,4 +18,5 @@ else
 fi
 
 mix deps.get
-mix elixir_ls.release -o ~/.vscode/extensions/jakebecker.elixir-ls-*/elixir-ls-release/
+MIX_ENV=prod mix compile --force
+MIX_ENV=prod mix elixir_ls.release2 -o ~/.vscode/extensions/jakebecker.elixir-ls-*/elixir-ls-release/
