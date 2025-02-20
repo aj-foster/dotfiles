@@ -234,7 +234,7 @@ fi
 
 # K9s Config
 #
-if [ ! -L ~/Library/Application\ Support/k9s/skin.yml ]
+if [ ! -L ~/Library/Application\ Support/k9s/config.yaml ]
 then
   echo "${RED}✗ K9s Configuration${NC}"
   continue_or_exit "Install K9s Configuration?"
