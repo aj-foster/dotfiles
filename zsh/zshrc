@@ -17,6 +17,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+autoload -U +X bashcompinit && bashcompinit
 
 #
 # Aliases
@@ -122,9 +123,9 @@ unsetopt share_history
 # Terraform
 #
 
-if [ -f /usr/local/bin/terraform ]
+if [ -f /opt/homebrew/bin/terraform ]
 then
-  complete -o nospace -C /usr/local/bin/terraform terraform
+  complete -o nospace -C /opt/homebrew/bin/terraform terraform
 fi
 
 
@@ -153,4 +154,3 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 fpath=(~/.zsh $fpath)
-autoload -Uz compinit && compinit

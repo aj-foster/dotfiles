@@ -121,9 +121,9 @@ export EDITOR=/usr/bin/nano
 # Terraform #
 #############
 
-if [ -f /usr/local/bin/terraform ]
+if [ -f /opt/homebrew/bin/terraform ]
 then
-  complete -C /usr/local/bin/terraform terraform
+  complete -C /opt/homebrew/bin/terraform terraform
 fi
 
 
