@@ -169,9 +169,7 @@ if [ -z $(which asdf) ]
 then
   echo "${RED}✗ ASDF${NC}"
   continue_or_exit "Install ASDF?"
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  cd ~/.asdf
-  git checkout "$(git describe --abbrev=0 --tags)"
+  brew install asdf
 else
   echo "${GREEN}✓ ASDF${NC}"
 fi
