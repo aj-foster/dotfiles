@@ -195,7 +195,7 @@ if [ -z $(echo "$ASDF_PLUGINS" | grep erlang) ]
 then
   echo "${RED}✗ ASDF Erlang Plugin${NC}"
   continue_or_exit "Install ASDF Erlang Plugin?"
-  asdf plugin-add erlang
+  asdf plugin add erlang
 else
   echo "${GREEN}✓ ASDF Erlang Plugin${NC}"
 fi
@@ -204,7 +204,7 @@ if [ -z $(echo "$ASDF_PLUGINS" | grep elixir) ]
 then
   echo "${RED}✗ ASDF Elixir Plugin${NC}"
   continue_or_exit "Install ASDF Elixir Plugin?"
-  asdf plugin-add elixir
+  asdf plugin add elixir
 else
   echo "${GREEN}✓ ASDF Elixir Plugin${NC}"
 fi
@@ -213,7 +213,7 @@ if [ -z $(echo "$ASDF_PLUGINS" | grep nodejs) ]
 then
   echo "${RED}✗ ASDF Node.js Plugin${NC}"
   continue_or_exit "Install ASDF Node.js Plugin?"
-  asdf plugin-add nodejs
+  asdf plugin add nodejs
 else
   echo "${GREEN}✓ ASDF Node.js Plugin${NC}"
 fi
