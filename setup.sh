@@ -220,6 +220,18 @@ else
   echo "${GREEN}✓ ASDF Node.js Plugin${NC}"
 fi
 
+# GhosTTY
+#
+if [ ! -L ~/Library/Application\ Support/com.mitchellh.ghostty/config ]
+then
+  echo "${RED}✗ GhosTTY Configuration${NC}"
+  continue_or_exit "Install GhosTTY Configuration?"
+  mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+  ln -s ~/.files/terminal/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+else
+  echo "${GREEN}✓ GhosTTY Configuration${NC}"
+fi
+
 # K9s Config
 #
 if [ ! -L ~/Library/Application\ Support/k9s/skin.yml ]
