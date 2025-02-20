@@ -1,0 +1,5 @@
+#!/bin/sh
+
+killall "Stream Deck"
+sleep 1
+open -a "/Applications/Elgato Stream Deck.app"
