@@ -154,6 +154,3 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
-
-# Load iTerm integration
-test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh" || true
