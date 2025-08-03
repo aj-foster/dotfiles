@@ -50,10 +50,24 @@ trash () { command mv "$@" ~/.Trash ; }
 # Launch tmux with all colors
 alias tmux='tmux -2'
 
+#
+# Android
+#
+
+if [ -d $HOME/Library/Android/sdk/ ]
+then
+  export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/tools/bin"
+fi
+
 
 #
 # Docker
 #
+
+if [ -d /Applications/Docker.app/Contents/Resources/bin/ ]
+then
+  export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+fi
 
 alias de='docker exec -it'
 
