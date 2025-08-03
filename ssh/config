@@ -6,3 +6,4 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+  SetEnv TERM=xterm-256color
