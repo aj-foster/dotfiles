@@ -81,6 +81,17 @@ then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
+# Roo Code Extension
+#
+if [ ! -L ~/.vscode-server/data/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json ]
+then
+  if [ -f ~/.roo/mcp_settings.json ]
+  then
+    mkdir -p ~/.vscode-server/data/User/globalStorage/rooveterinaryinc.roo-cline/settings
+    ln -s ~/.roo/mcp_settings.json ~/.vscode-server/data/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json
+  fi
+fi
+
 # SSH Config
 #
 if [ ! -L ~/.ssh/config ]

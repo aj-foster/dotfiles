@@ -269,6 +269,24 @@ else
   echo "${GREEN}✓ Nano Syntax Highlighting${NC}"
 fi
 
+# Roo Code Extension
+#
+if [ ! -L ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json ]
+then
+  echo "${RED}✗ Roo Code MCP Settings${NC}"
+  continue_or_exit "Link Roo Code MCP Settings?"
+
+  if [ -f ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json ]
+  then
+    mv -i ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json.pre-setup
+  fi
+
+  mkdir -p ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings
+  ln -s ~/.roo/mcp_settings.json ~/Library/Application\ Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json
+else
+  echo "${GREEN}✓ Roo Code MCP Settings${NC}"
+fi
+
 # SSH Config
 #
 if [ ! -L ~/.ssh/config ]
