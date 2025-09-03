@@ -6,6 +6,7 @@ font-thicken = true
 macos-icon = custom-style
 macos-icon-ghost-color = #abb2bf
 macos-icon-screen-color = #23272e
+scrollback-limit = 20971520
 shell-integration-features = no-cursor
 quit-after-last-window-closed = true
 
