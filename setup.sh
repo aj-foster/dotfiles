@@ -189,7 +189,7 @@ else
   echo "${GREEN}✓ ASDF Configuration File${NC}"
 fi
 
-ASDF_PLUGINS=$(asdf plugin-list)
+ASDF_PLUGINS=$(asdf plugin list)
 
 if [ -z $(echo "$ASDF_PLUGINS" | grep erlang) ]
 then
