@@ -78,6 +78,7 @@ alias de='docker exec -it'
 
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="yes"
+export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=5
 
 
 #
